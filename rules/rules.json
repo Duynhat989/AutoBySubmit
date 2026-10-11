@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": ".mp4",
+      "resourceTypes": ["media", "xmlhttprequest", "other"]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "responseHeaders": [
+        { "header": "content-security-policy", "operation": "remove" },
+        { "header": "content-security-policy-report-only", "operation": "remove" }
+      ]
+    },
+    "condition": {
+      "requestDomains": ["flow.google.com", "labs.google"],
+      "resourceTypes": ["main_frame", "sub_frame"]
+    }
+  }
+]
